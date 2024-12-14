@@ -58,6 +58,17 @@ main {
     justify-content: flex-start;
 }
 
+/* NUEVO: En móvil, todos uno debajo del otro ocupando 100% */
+@media (max-width: 768px) {
+    .basic-info-row {
+        display: block;
+    }
+    .basic-left-fields, .basic-right-field {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
 
 /* Estilos generales de formulario */
 form {
@@ -101,8 +112,7 @@ label {
     margin-bottom: 0.5rem;
 }
 
-
-/* Estilos específicos para los campos de texto */
+/* Campos de texto */
 input[type="text"],
 input[type="number"] {
     width: 100%;
@@ -114,7 +124,7 @@ input[type="number"] {
     color: #333;
 }
 
-/* Estilos para el selector */
+/* Selector */
 select {
     width: 100%;
     padding: 0.75rem;
@@ -125,7 +135,7 @@ select {
     color: #333;
 }
 
-/* Estilos del campo de radio */
+/* Radio */
 input[type="radio"] {
     width: auto;
     margin-right: 10px;
@@ -146,7 +156,7 @@ button:hover {
     background-color: #444; /* Gris aún más oscuro en hover */
 }
 
-/* Diseño para las casillas de verificación */
+/* Checkboxes */
 input[type="checkbox"] {
     margin-right: 0.5rem;
 }
@@ -155,7 +165,7 @@ input[type="radio"] {
     margin-right: 0.5rem;
 }
 
-/* Diseño de los contenedores de tipo de bin */
+/* Bins */
 #bins-container {
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -201,22 +211,39 @@ button#add-bin{
     margin-bottom: 0.5rem;
 }
 
+/* NUEVO: Ajuste de bins en móvil para mejor visualización.
+   Aquí colocamos cada bin-line en 100% y vertical en pantallas pequeñas */
+@media (max-width: 768px) {
+    .bin-line {
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bin-line input {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}
+
 /* Mejorar la visibilidad del campo de fecha */
 #current-date {
     font-size: 1.2rem;
     color: #555; /* Gris medio */
 }
 
-/* Mejoras en la visualización de los campos de fecha */
+/* Enfoque */
 input[type="text"]:focus,
 input[type="number"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #0073e6; /* Azul claro para campos enfocados */
+    border-color: #0073e6; /* Azul claro */
     outline: none;
 }
 
-/* Mejoras en la presentación del formulario */
+/* Ajustes generales */
 input[type="text"],
 input[type="number"],
 select {
@@ -247,26 +274,48 @@ button {
 
 /* add cart section */
 .add-cart-section {
+    /* NUEVO: Centrar el texto y los botones tanto en pc como en movil */
     display: flex;
+    flex-direction: column; /* Texto arriba, botones abajo */
     align-items: center;
     margin-bottom: 1rem;
 }
 
 .add-cart-section > label {
-    margin-right: 1rem;
+    margin-bottom: 1rem; /* poner un margen inferior para separarlo de los botones */
     font-weight: bold;
+    text-align: center;
 }
 
+/* Botones Yes/No más pequeños y estéticos, centrados */
 .add-cart-buttons {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .add-cart-buttons label {
     font-weight: normal;
 }
 
+/* Si mantienes radios, aquí no afectan; 
+   pero ya tienes botones. Si tienes botones "Yes"/"No", ajusta su tamaño */
+.add-cart-buttons button {
+    background: #ddd;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.add-cart-buttons button:hover {
+    background: #ccc;
+}
+
+/* El input radio para add-cart no se utiliza ahora, pero mantengo el estilo por si acaso */
 .add-cart-buttons input[type="radio"] {
     width: auto;
     margin: 0 0.2rem 0 0;
