@@ -21,11 +21,19 @@
                 <input type="text" id="pn-material" name="pn-material" required>
 
                 <label for="cart-station">Picking Cart Station:</label>
-                <input type="text" id="cart-station" name="cart-station" placeholder="A-F" required>
+                <select id="cart-station" name="cart-station" required>
+                    <option value="" disabled selected>Select a station</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                </select>
             </fieldset>
 
-            <fieldset id="shelves-container">
-                <legend>Choose Shelf</legend>
+            <fieldset id="shelves-section">
+                <legend>Select Shelves</legend>
                 <div>
                     <input type="checkbox" id="shelf-4" name="shelf" value="4">
                     <label for="shelf-4">Shelf 4</label>
@@ -44,14 +52,14 @@
                 </div>
             </fieldset>
 
-            <fieldset id="bin-details">
-                <legend>Bin Details (Max 5)</legend>
+            <fieldset id="bins-section">
+                <legend>Types of Bins (Max 5)</legend>
                 <div id="bins-container"></div>
                 <button type="button" id="add-bin">Add Bin</button>
             </fieldset>
 
             <fieldset>
-                <legend>Additional Options</legend>
+                <legend>Additional Information</legend>
                 <label for="data-provider">Data provided by:</label>
                 <input type="text" id="data-provider" name="data-provider" required>
 
@@ -73,6 +81,6 @@
             <button type="submit">Submit</button>
         </form>
     </main>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
