@@ -1,13 +1,21 @@
+/* Diseño base y paleta de colores */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #f4f4f4; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    box-sizing: border-box;  /* Asegura que el padding y el borde no sobrepasen el ancho */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;  /* Aplica box-sizing a todos los elementos */
 }
 
 header {
-    background-color: #0073e6;
+    background-color: #333; /* Gris oscuro */
     color: white;
     padding: 1rem;
     text-align: center;
@@ -15,13 +23,21 @@ header {
 
 main {
     margin: 2rem auto;
-    max-width: 600px;
+    max-width: 800px; /* Tamaño aumentado en versión escritorio */
     background: white;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 768px) {
+    main {
+        margin: 1rem; /* Márgenes en versión móvil */
+        padding: 1rem;
+    }
+}
+
+/* Estilos generales de formulario */
 form {
     display: flex;
     flex-direction: column;
@@ -29,39 +45,133 @@ form {
 
 fieldset {
     margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 5px;
+    background-color: #fafafa; /* Fondo gris claro para el campo */
 }
 
 legend {
     font-weight: bold;
+    color: #333;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: #555; /* Gris medio */
 }
 
+/* Estilos específicos para los campos de texto */
 input[type="text"],
 input[type="number"] {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #fafafa; /* Fondo gris claro */
+    color: #333;
 }
 
+/* Estilos para el selector */
+select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa; /* Fondo gris claro para el selector */
+    color: #333;
+}
+
+/* Estilos del campo de radio */
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Botón */
 button {
-    background-color: #0073e6;
+    background-color: #555; /* Gris oscuro para los botones */
     color: white;
     padding: 0.75rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #005bb5;
+    background-color: #444; /* Gris aún más oscuro en hover */
+}
+
+/* Diseño para las casillas de verificación */
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Diseño de los contenedores de tipo de bin */
+#bins-container {
+    margin-bottom: 1rem;
+}
+
+.bin-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.bin-group input {
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Mejorar la visibilidad del campo de fecha */
+#current-date {
+    font-size: 1.2rem;
+    color: #555; /* Gris medio */
+}
+
+/* Mejoras en la visualización de los campos de fecha */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #0073e6; /* Azul claro para campos enfocados */
+    outline: none;
+}
+
+/* Mejoras en la presentación del formulario */
+input[type="text"],
+input[type="number"],
+select {
+    font-size: 1rem;
+}
+
+button {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Ajustes en la sección de 'main' */
+@media screen and (max-width: 768px) {
+    main {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    fieldset {
+        padding: 1rem;
+    }
 }
