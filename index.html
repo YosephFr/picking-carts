@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picking Cart Form</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -14,43 +18,47 @@
         <form id="picking-cart-form">
             <fieldset>
                 <legend>Basic Information</legend>
-                <label for="line-number">Number of the line:</label>
-                <input type="text" id="line-number" name="line-number" required>
-
-                <label for="pn-material">PN Material:</label>
-                <input type="text" id="pn-material" name="pn-material" required>
-
-                <label for="cart-station">Picking Cart Station:</label>
-                <select id="cart-station" name="cart-station" required>
-                    <option value="" disabled selected>Select a station</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                    <option value="F">F</option>
-                </select>
-            </fieldset>
+                <div class="basic-info-row">
+                    <div class="basic-left-fields">
+                        <label for="line-number">Number of the line:</label>
+                        <input type="text" id="line-number" name="line-number" required>
+            
+                        <label for="pn-material">PN Material:</label>
+                        <input type="text" id="pn-material" name="pn-material" required>
+                    </div>
+                    <div class="basic-right-field">
+                        <label for="cart-station">Picking Cart Station:</label>
+                        <select id="cart-station" name="cart-station" required>
+                            <option value="A" selected>A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>            
 
             <fieldset id="shelves-section">
                 <legend>Select Shelves</legend>
-                <div>
+                <div class="shelf-row">
                     <input type="checkbox" id="shelf-4" name="shelf" value="4">
                     <label for="shelf-4">Shelf 4</label>
                 </div>
-                <div>
+                <div class="shelf-row">
                     <input type="checkbox" id="shelf-3" name="shelf" value="3">
                     <label for="shelf-3">Shelf 3</label>
                 </div>
-                <div>
+                <div class="shelf-row">
                     <input type="checkbox" id="shelf-2" name="shelf" value="2">
                     <label for="shelf-2">Shelf 2</label>
                 </div>
-                <div>
+                <div class="shelf-row">
                     <input type="checkbox" id="shelf-1" name="shelf" value="1">
                     <label for="shelf-1">Shelf 1</label>
                 </div>
-            </fieldset>
+            </fieldset>            
 
             <fieldset id="bins-section">
                 <legend>Types of Bins (Max 5)</legend>
@@ -62,22 +70,19 @@
                 <legend>Additional Information</legend>
                 <label for="data-provider">Data provided by:</label>
                 <input type="text" id="data-provider" name="data-provider" required>
-
-                <div>
-                    <input type="radio" id="add-cart-yes" name="add-cart" value="yes">
-                    <label for="add-cart-yes">Add another picking cart</label>
-                </div>
-                <div>
-                    <input type="radio" id="add-cart-no" name="add-cart" value="no" checked>
-                    <label for="add-cart-no">No</label>
-                </div>
+            
+                <label for="current-date-field">Date:</label>
+                <input type="text" id="current-date-field" name="current-date-field" readonly>
             </fieldset>
-
-            <div>
-                <label>Date:</label>
-                <span id="current-date"></span>
+            
+            <div class="add-cart-section">
+                <label>Do you want to add another picking cart?</label>
+                <div class="add-cart-buttons">
+                    <button type="button" class="add-cart-btn" data-value="yes">Yes</button>
+                    <button type="button" class="add-cart-btn" data-value="no">No</button>
+                </div>
             </div>
-
+              
             <button type="submit">Submit</button>
         </form>
     </main>

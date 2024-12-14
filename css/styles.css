@@ -1,6 +1,6 @@
 /* Diseño base y paleta de colores */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Fondo gris claro */
@@ -37,6 +37,28 @@ main {
     }
 }
 
+/* Basic information */
+.basic-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.basic-left-fields {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.basic-right-field {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
 /* Estilos generales de formulario */
 form {
     display: flex;
@@ -62,6 +84,23 @@ label {
     font-weight: bold;
     color: #555; /* Gris medio */
 }
+
+/* Shelf rows */
+.shelf-row {
+    display: flex;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.shelf-row input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 
 /* Estilos específicos para los campos de texto */
 input[type="text"],
@@ -119,12 +158,45 @@ input[type="radio"] {
 /* Diseño de los contenedores de tipo de bin */
 #bins-container {
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
-
+button#add-bin{
+    margin-top: 0px;
+}
+.bin-line {
+    display: flex;
+    align-items: center;
+    width: 48%;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+.bin-line label {
+/* hi xd*/
+}
+.bin-line input {
+    flex: 1 1 auto;
+    margin-left: 0.5rem;
+}
 .bin-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 1rem;
+    justify-content: space-between;
+}
+.remove-bin-btn {
+    background: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    align-self: flex-end;
+}
+.remove-bin-btn:hover {
+    background: #990000;
 }
 
 .bin-group input {
@@ -174,4 +246,31 @@ button {
     fieldset {
         padding: 1rem;
     }
+}
+
+/* add cart section */
+.add-cart-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.add-cart-section > label {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.add-cart-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.add-cart-buttons label {
+    font-weight: normal;
+}
+
+.add-cart-buttons input[type="radio"] {
+    width: auto;
+    margin: 0 0.2rem 0 0;
 }
