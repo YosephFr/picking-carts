@@ -45,17 +45,34 @@ main {
 }
 
 .basic-left-fields {
-    flex: 0 0 60%;
+    flex: 0 0 68%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 .basic-right-field {
-    flex: 0 0 30%;
+    flex: 0 0 28%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+}
+select#cart-station {
+    width: 90%
+}
+
+@media (max-width: 768px) {
+    .basic-left-fields,
+    .basic-right-field {
+        flex: 0 0 100%;
+        width: 100%;
+        align-items: flex-start; /* revertir el alineado al original */
+    }
+
+    select#cart-station {
+        width: 100%; /* volver al 100% en móvil */
+    }
 }
 
 /* NUEVO: En móvil, todos uno debajo del otro ocupando 100% */
@@ -215,7 +232,7 @@ button#add-bin{
    Aquí colocamos cada bin-line en 100% y vertical en pantallas pequeñas */
 @media (max-width: 768px) {
     .bin-line {
-        width: 100%;
+        width: 90%;
         justify-content: flex-start;
         flex-direction: column;
         align-items: flex-start;
@@ -224,7 +241,7 @@ button#add-bin{
     .bin-line input {
         margin-left: 0;
         margin-top: 0.5rem;
-        width: 100%;
+        width: 90%;
     }
 }
 
@@ -282,7 +299,6 @@ button {
 }
 
 .add-cart-section > label {
-    margin-bottom: 1rem; /* poner un margen inferior para separarlo de los botones */
     font-weight: bold;
     text-align: center;
 }
