@@ -171,9 +171,6 @@ button#add-bin{
     flex-direction: row;
     margin-bottom: 0.5rem;
 }
-.bin-line label {
-/* hi xd*/
-}
 .bin-line input {
     flex: 1 1 auto;
     margin-left: 0.5rem;
