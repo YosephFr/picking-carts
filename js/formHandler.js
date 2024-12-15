@@ -26,6 +26,8 @@ export function initializeForm(){
     const form=document.getElementById('picking-cart-form');
     const binsContainer=document.getElementById('bins-container');
     const addBinButton=document.getElementById('add-bin');
+
+    // Agregamos primer bin sin botón de remover
     binsContainer.appendChild(createBinGroup());
 
     addBinButton.addEventListener('click',()=>{
@@ -36,9 +38,36 @@ export function initializeForm(){
         binsContainer.appendChild(createBinGroup(true));
     });
 
+    // Lógica para shelves y letters rows
+    const shelfCheckboxes = form.querySelectorAll('input[name="shelf"]');
+    shelfCheckboxes.forEach(shelfCheck => {
+        shelfCheck.addEventListener('change', () => {
+            // Ejemplo: shelfCheck.id = "shelf-4" => letters-for-shelf-4
+            const shelfId = shelfCheck.id;
+            const lettersContainer = document.getElementById(`letters-for-${shelfId}`);
+            if (lettersContainer) {
+                lettersContainer.style.display = shelfCheck.checked ? 'block' : 'none';
+            }
+        });
+    });
+
+    // Lógica para las letter-checks dentro de cada letter-box
+    form.addEventListener('change', (e) => {
+        if (e.target.classList.contains('letter-check')) {
+            const letterBox = e.target.closest('.letter-box');
+            if (letterBox) {
+                const extraFields = letterBox.querySelector('.letter-extra-fields');
+                if (extraFields) {
+                    extraFields.style.display = e.target.checked ? 'block' : 'none';
+                }
+            }
+        }
+    });
+
     form.addEventListener('submit',e=>{
         e.preventDefault();
         const formData=new FormData(form);
+
         const data={
             ...Object.fromEntries(formData.entries()),
             shelves:[...form.querySelectorAll('input[name="shelf"]:checked')].map(i=>i.value),
@@ -47,7 +76,9 @@ export function initializeForm(){
                 number:b.querySelector('input[name="bin-number"]').value
             }))
         };
+
         console.log('Form Submitted:',data);
+
         if(data['add-cart']==='yes'){
             alert('Please fill in the details for the next picking cart.');
             form.reset();

@@ -258,3 +258,41 @@ input[type="text"],input[type="number"],select {
     width:auto;
     margin:0 0.2rem 0 0;
 }
+.letters-row-container {
+    margin-top: 1rem;
+}
+
+.letters-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .letters-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.letter-box {
+    background: #eee;
+    border-radius: 4px;
+    padding: 0.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.letter-label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.letter-extra-fields {
+    margin-top: 0.5rem;
+}
+
+.letter-extra-fields label {
+    display: block;
+    margin-bottom: 0.5rem;
+}

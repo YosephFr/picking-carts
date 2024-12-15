@@ -31,6 +31,31 @@
             <fieldset id="shelves-section">
                 <legend>Select Shelves</legend>
                 <div class="shelf-row"><input type="checkbox" id="shelf-4" name="shelf" value="4"><label for="shelf-4">Shelf 4</label></div>
+                    <!-- Después de la <div class="shelf-row"> para shelf-4 -->
+<div class="letters-row-container" id="letters-for-shelf-4" style="display:none;">
+    <div class="letters-grid">
+        <!-- Repetir para A, B, C, D, E, F -->
+        <div class="letter-box">
+            <div class="letter-label">A</div>
+            <label><input type="checkbox" class="letter-check"> Select</label>
+            <div class="letter-extra-fields" style="display:none;">
+                <label>Item number: <input type="text" name="item-number-shelf-4-A"></label>
+                <label>Sort string: <input type="text" name="sort-string-shelf-4-A"></label>
+            </div>
+        </div>
+
+        <div class="letter-box">
+            <div class="letter-label">B</div>
+            <label><input type="checkbox" class="letter-check"> Select</label>
+            <div class="letter-extra-fields" style="display:none;">
+                <label>Item number: <input type="text" name="item-number-shelf-4-B"></label>
+                <label>Sort string: <input type="text" name="sort-string-shelf-4-B"></label>
+            </div>
+        </div>
+        
+        <!-- Repite lo mismo para C, D, E, F cambiando la letra y el name según corresponda -->
+    </div>
+</div>
                 <div class="shelf-row"><input type="checkbox" id="shelf-3" name="shelf" value="3"><label for="shelf-3">Shelf 3</label></div>
                 <div class="shelf-row"><input type="checkbox" id="shelf-2" name="shelf" value="2"><label for="shelf-2">Shelf 2</label></div>
                 <div class="shelf-row"><input type="checkbox" id="shelf-1" name="shelf" value="1"><label for="shelf-1">Shelf 1</label></div>
