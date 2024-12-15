@@ -31,34 +31,276 @@
             <fieldset id="shelves-section">
                 <legend>Select Shelves</legend>
                 <div class="shelf-row"><input type="checkbox" id="shelf-4" name="shelf" value="4"><label for="shelf-4">Shelf 4</label></div>
-                    <!-- Después de la <div class="shelf-row"> para shelf-4 -->
-<div class="letters-row-container" id="letters-for-shelf-4" style="display:none;">
-    <div class="letters-grid">
-        <!-- Repetir para A, B, C, D, E, F -->
-        <div class="letter-box">
-            <div class="letter-label">A</div>
-            <label><input type="checkbox" class="letter-check"> Select</label>
-            <div class="letter-extra-fields" style="display:none;">
-                <label>Item number: <input type="text" name="item-number-shelf-4-A"></label>
-                <label>Sort string: <input type="text" name="sort-string-shelf-4-A"></label>
-            </div>
-        </div>
-
-        <div class="letter-box">
-            <div class="letter-label">B</div>
-            <label><input type="checkbox" class="letter-check"> Select</label>
-            <div class="letter-extra-fields" style="display:none;">
-                <label>Item number: <input type="text" name="item-number-shelf-4-B"></label>
-                <label>Sort string: <input type="text" name="sort-string-shelf-4-B"></label>
-            </div>
-        </div>
-        
-        <!-- Repite lo mismo para C, D, E, F cambiando la letra y el name según corresponda -->
-    </div>
-</div>
+                <div class="letters-row-container" id="letters-for-shelf-4" style="display:none;">
+                    <div class="letters-grid">
+                        <div class="letter-box" data-letter="A">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">A</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-A" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-A" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" data-letter="B">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">B</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-B" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-B" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" data-letter="C">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">C</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-C" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-C" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" data-letter="D">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">D</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-D" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-D" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" data-letter="E">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">E</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-E" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-E" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" data-letter="F">
+                            <div class="letter-handle"><input type="radio" class="letter-handle-radio"></div>
+                            <div class="letter-label">F</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-4-F" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-4-F" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                              
                 <div class="shelf-row"><input type="checkbox" id="shelf-3" name="shelf" value="3"><label for="shelf-3">Shelf 3</label></div>
+                <div class="letters-row-container" id="letters-for-shelf-3" style="display:none;">
+                    <div class="letters-grid">
+                        <div class="letter-box">
+                            <div class="letter-label">A</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-A" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-A" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box">
+                            <div class="letter-label">B</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-B" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-B" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box">
+                            <div class="letter-label">C</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-C" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-C" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box">
+                            <div class="letter-label">D</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-D" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-D" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box">
+                            <div class="letter-label">E</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-E" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-E" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box">
+                            <div class="letter-label">F</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-3-F" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-3-F" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
                 <div class="shelf-row"><input type="checkbox" id="shelf-2" name="shelf" value="2"><label for="shelf-2">Shelf 2</label></div>
+                <div class="letters-row-container" id="letters-for-shelf-2" style="display:none;">
+                    <div class="letters-grid">
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">A</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-A" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-A" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">B</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-B" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-B" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">C</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-C" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-C" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">D</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-D" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-D" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">E</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-E" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-E" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">F</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-F" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-F" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
                 <div class="shelf-row"><input type="checkbox" id="shelf-1" name="shelf" value="1"><label for="shelf-1">Shelf 1</label></div>
+                <div class="letters-row-container" id="letters-for-shelf-1" style="display:none;">
+                    <div class="letters-grid">
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">A</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-A" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-A" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">B</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-B" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-B" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">C</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-C" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-C" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">D</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-D" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-D" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">E</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-E" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-E" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">F</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-1-F" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-1-F" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="letters-row-container" id="letters-for-shelf-2" style="display:none;">
+                    <div class="letters-grid">
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">A</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-A" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-A" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">B</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-B" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-B" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">C</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-C" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-C" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">D</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-D" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-D" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">E</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-E" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-E" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                        <div class="letter-box" id="letter-box-A">
+                            <div class="letter-label">F</div>
+                            <input type="checkbox" class="letter-check">
+                            <div class="letter-extra-fields" style="display:none;">
+                                <label><input type="text" name="item-number-shelf-2-F" id="extra-field" placeholder="item #"></label>
+                                <label><input type="text" name="sort-string-shelf-2-F" id="extra-field" placeholder="sort string"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </fieldset>
             <fieldset id="bins-section">
                 <legend>Types of Bins (Max 5)</legend>

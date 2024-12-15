@@ -259,7 +259,8 @@ input[type="text"],input[type="number"],select {
     margin:0 0.2rem 0 0;
 }
 .letters-row-container {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .letters-grid {
@@ -275,14 +276,24 @@ input[type="text"],input[type="number"],select {
 }
 
 .letter-box {
-    background: #eee;
+    color: #fff;
+    background: #333;
     border-radius: 4px;
-    padding: 0.5rem;
+    padding: 0.9rem 0.5rem 0.7rem 0.5rem;
     text-align: center;
     position: relative;
 }
+.letter-box:hover {
+    background: #222;
+    transition-duration: 400ms;
+}
+.letter-box:active {
+    background: #222;
+    transition-duration: 400ms;
+}
 
 .letter-label {
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 0.25rem;
     text-transform: uppercase;
@@ -294,5 +305,24 @@ input[type="text"],input[type="number"],select {
 
 .letter-extra-fields label {
     display: block;
-    margin-bottom: 0.5rem;
+}
+#extra-field {
+    margin-bottom: 0rem;
+    text-align: center;
+    padding: 0.2rem 0.1rem 0.2rem 0.1rem;
+}
+#letter-box-A{
+    background-color: #060b87;
+}
+#letter-box-A:hover {
+    background-color: #03065f;
+    transition-duration: 400ms;
+}
+.letter-handle {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+}
+.letter-handle-radio {
+    cursor: grab;
 }
