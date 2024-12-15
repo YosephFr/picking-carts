@@ -1,3 +1,5 @@
+import { MAX_BINS, MESSAGES } from './config.js';
+
 function createBinGroup(canRemove=false){
     const binGroup=document.createElement('div');
     binGroup.classList.add('bin-group');
@@ -31,34 +33,60 @@ export function initializeForm(){
     binsContainer.appendChild(createBinGroup());
 
     addBinButton.addEventListener('click',()=>{
-        if(binsContainer.querySelectorAll('.bin-group').length>=5){
-            alert('You can only add up to 5 bins.');
+        if (binsContainer.querySelectorAll('.bin-group').length >= MAX_BINS) {
+            alert(MESSAGES.maxBinsReached);
             return;
         }
         binsContainer.appendChild(createBinGroup(true));
+        const newBin = binsContainer.lastElementChild;
+        newBin.classList.add('bin-group-animate');
+        setTimeout(() => newBin.classList.remove('bin-group-animate'), 300);
     });
 
-    // Lógica para shelves y letters rows
+    // Lógica para shelves y letras
     const shelfCheckboxes = form.querySelectorAll('input[name="shelf"]');
     shelfCheckboxes.forEach(shelfCheck => {
         shelfCheck.addEventListener('change', () => {
-            // Ejemplo: shelfCheck.id = "shelf-4" => letters-for-shelf-4
-            const shelfId = shelfCheck.id;
+            const shelfId = shelfCheck.id; // Por ejemplo, "shelf-4"
             const lettersContainer = document.getElementById(`letters-for-${shelfId}`);
             if (lettersContainer) {
-                lettersContainer.style.display = shelfCheck.checked ? 'block' : 'none';
+                if (shelfCheck.checked) {
+                    lettersContainer.classList.add('fade-in');
+                    lettersContainer.classList.remove('fade-out');
+                    lettersContainer.style.display = 'block';
+                } else {
+                    lettersContainer.classList.remove('fade-in');
+                    lettersContainer.classList.add('fade-out');
+                    setTimeout(()=>{
+                        if (lettersContainer.classList.contains('fade-out')) {
+                            lettersContainer.style.display = 'none';
+                        }
+                    },300);
+                }
             }
         });
     });
 
-    // Lógica para las letter-checks dentro de cada letter-box
+    // Lógica para mostrar/ocultar extra fields de letras
     form.addEventListener('change', (e) => {
         if (e.target.classList.contains('letter-check')) {
             const letterBox = e.target.closest('.letter-box');
             if (letterBox) {
                 const extraFields = letterBox.querySelector('.letter-extra-fields');
                 if (extraFields) {
-                    extraFields.style.display = e.target.checked ? 'block' : 'none';
+                    if (e.target.checked) {
+                        extraFields.classList.add('fade-in');
+                        extraFields.classList.remove('fade-out');
+                        extraFields.style.display = 'block';
+                    } else {
+                        extraFields.classList.remove('fade-in');
+                        extraFields.classList.add('fade-out');
+                        setTimeout(()=>{
+                            if (extraFields.classList.contains('fade-out')) {
+                                extraFields.style.display = 'none';
+                            }
+                        },300);
+                    }
                 }
             }
         }
@@ -66,6 +94,26 @@ export function initializeForm(){
 
     form.addEventListener('submit',e=>{
         e.preventDefault();
+        // Validaciones robustas
+        const requiredFields = ['line-number', 'pn-material', 'data-provider'];
+        let valid = true;
+
+        requiredFields.forEach(fieldName => {
+            const field = form.querySelector(`[name="${fieldName}"]`);
+            if (!field || !field.value.trim()) {
+                valid = false;
+            }
+        });
+
+        // Validar que al menos un shelf esté seleccionado
+        const anyShelfSelected = form.querySelectorAll('input[name="shelf"]:checked').length > 0;
+        if (!anyShelfSelected) valid = false;
+
+        if (!valid) {
+            alert(MESSAGES.validationError);
+            return;
+        }
+
         const formData=new FormData(form);
 
         const data={
@@ -80,11 +128,11 @@ export function initializeForm(){
         console.log('Form Submitted:',data);
 
         if(data['add-cart']==='yes'){
-            alert('Please fill in the details for the next picking cart.');
+            alert(MESSAGES.fillNextCart);
             form.reset();
             binsContainer.innerHTML='';
-        }else{
-            alert('Form submitted successfully!');
+        } else {
+            alert(MESSAGES.formSuccess);
         }
     });
 }
