@@ -1,268 +1,354 @@
+/* Definición de Variables CSS para Colores Globales */
+:root {
+    --font-family: 'Montserrat', Arial, sans-serif;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg-color: #333;
+    --header-text-color: #fff;
+    --main-bg-color: #fff;
+    --fieldset-bg-color: #fafafa;
+    --fieldset-border-color: #ccc;
+    --legend-color: #333;
+    --label-color: #555;
+    --input-bg-color: #fafafa;
+    --input-border-color: #ccc;
+    --input-focus-border-color: #0073e6;
+    --button-bg-color: #555;
+    --button-text-color: #fff;
+    --button-hover-bg-color: #444;
+    --remove-button-bg-color: #cc0000;
+    --remove-button-hover-bg-color: #990000;
+    --add-cart-button-bg-color: #ddd;
+    --add-cart-button-hover-bg-color: #ccc;
+    --letter-box-bg-color: #333;
+    --letter-box-hover-bg-color: #222;
+    --shelf-1-2-bg-color: #060b87; /* Color para Shelf 1 y 2 */
+    --shelf-1-2-hover-bg-color: #03065f;
+    --shelf-3-4-bg-color: #333; /* Color para Shelf 3 y 4 */
+    --shelf-3-4-hover-bg-color: #222;
+}
+
+/* Reset y Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
-    font-family:'Montserrat',Arial,sans-serif;
-    margin:0;
-    padding:0;
-    background-color:#f4f4f4;
-    color:#333;
-    box-sizing:border-box;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
-*,*::before,*::after {
-    box-sizing:inherit;
-}
+
+/* Header */
 header {
-    background-color:#333;
-    color:#fff;
-    padding:1rem;
-    text-align:center;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 1rem;
+    text-align: center;
 }
+
+/* Main */
 main {
-    margin:2rem auto;
-    max-width:800px;
-    background:#fff;
-    padding:2rem;
-    border-radius:8px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    background: var(--main-bg-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-@media (max-width:768px) {
+
+@media (max-width: 768px) {
     main {
-        margin:1rem;
-        padding:1rem;
+        margin: 1rem;
+        padding: 1rem;
     }
 }
-.basic-info-row {
-    display:flex;
-    justify-content:space-between;
-    gap:1rem;
-}
-.basic-left-fields {
-    flex:0 0 68%;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-}
-.basic-right-field {
-    flex:0 0 28%;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-}
-select#cart-station {
-    width:90%;
-}
-@media (max-width:768px) {
-    .basic-left-fields,.basic-right-field {
-        flex:0 0 100%;
-        width:100%;
-        align-items:flex-start;
-    }
-    select#cart-station {
-        width:100%;
-    }
-}
-@media (max-width:768px) {
-    .basic-info-row {
-        display:block;
-    }
-    .basic-left-fields,.basic-right-field {
-        flex:0 0 100%;
-        width:100%;
-        margin-bottom:1rem;
-    }
-}
+
+/* Formulario */
 form {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 }
+
+/* Fieldset */
 fieldset {
-    margin-bottom:1.5rem;
-    border:1px solid #ccc;
-    padding:1rem;
-    border-radius:5px;
-    background-color:#fafafa;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--fieldset-border-color);
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: var(--fieldset-bg-color);
 }
+
 legend {
-    font-weight:bold;
-    color:#333;
+    font-weight: bold;
+    color: var(--legend-color);
 }
+
 label {
-    display:block;
-    margin-bottom:0.5rem;
-    font-weight:bold;
-    color:#555;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--label-color);
 }
+
+/* Basic Information Row */
+.basic-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.basic-left-fields {
+    flex: 0 0 68%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.basic-right-field {
+    flex: 0 0 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+select#cart-station {
+    width: 90%;
+}
+
+@media (max-width: 768px) {
+    .basic-left-fields,
+    .basic-right-field {
+        flex: 0 0 100%;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    select#cart-station {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .basic-info-row {
+        display: block;
+    }
+
+    .basic-left-fields,
+    .basic-right-field {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Shelf Rows */
 .shelf-row {
-    display:flex;
-    margin-bottom:0.5rem;
-    justify-content:flex-start;
-    flex-direction:row;
-    align-items:flex-start;
+    display: flex;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
 }
+
 .shelf-row input[type="checkbox"] {
-    width:1.2em;
-    height:1.2em;
-    margin-right:0.5rem;
-    margin-bottom:0.5rem;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
-input[type="text"],input[type="number"] {
-    width:100%;
-    padding:0.75rem;
-    margin-bottom:1rem;
-    border:1px solid #ccc;
-    border-radius:4px;
-    background-color:#fafafa;
-    color:#333;
-}
+
+/* Inputs y Selects */
+input[type="text"],
+input[type="number"],
 select {
-    width:100%;
-    padding:0.75rem;
-    margin-bottom:1rem;
-    border:1px solid #ccc;
-    border-radius:4px;
-    background-color:#fafafa;
-    color:#333;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
 }
+
+input.extra-field {
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0.2rem 0.1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 0.9rem;
+}
+
 input[type="radio"] {
-    width:auto;
-    margin-right:0.5rem;
+    width: auto;
+    margin-right: 0.5rem;
 }
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--input-focus-border-color);
+    outline: none;
+}
+
+/* Botones Generales */
 button {
-    background-color:#555;
-    color:#fff;
-    padding:0.75rem;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:1rem;
-    margin-top:1rem;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
+
 button:hover {
-    background-color:#444;
+    background-color: var(--button-hover-bg-color);
 }
+
+/* Checkbox General */
 input[type="checkbox"] {
-    margin-right:0.5rem;
+    margin-right: 0.5rem;
 }
+
+/* Bins Section */
 #bins-container {
-    margin-bottom:1rem;
-    margin-top:1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
+
 button#add-bin {
-    margin-top:0;
+    margin-top: 0;
 }
+
 .bin-line {
-    display:flex;
-    align-items:center;
-    width:48%;
-    justify-content:flex-end;
-    flex-direction:row;
-    margin-bottom:0.5rem;
+    display: flex;
+    align-items: center;
+    width: 48%;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
 }
+
 .bin-line input {
-    flex:1 1 auto;
-    margin-left:0.5rem;
+    flex: 1 1 auto;
+    margin-left: 0.5rem;
 }
+
 .bin-group {
-    display:flex;
-    flex-direction:row;
-    margin-bottom:1rem;
-    justify-content:space-between;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
 }
+
 .remove-bin-btn {
-    background:#cc0000;
-    color:#fff;
-    border:none;
-    border-radius:4px;
-    padding:0.3rem 0.6rem;
-    cursor:pointer;
-    font-size:0.8rem;
-    margin-top:0.5rem;
-    align-self:flex-end;
+    background: var(--remove-button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    align-self: flex-end;
+    transition: background-color 0.3s ease;
 }
+
 .remove-bin-btn:hover {
-    background:#990000;
+    background: var(--remove-button-hover-bg-color);
 }
+
 .bin-group input {
-    width:auto;
-    margin-bottom:0.5rem;
+    width: auto;
+    margin-bottom: 0.5rem;
 }
-@media (max-width:768px) {
+
+@media (max-width: 768px) {
     .bin-line {
-        width:90%;
-        justify-content:flex-start;
-        flex-direction:column;
-        align-items:flex-start;
+        width: 90%;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
+
     .bin-line input {
-        margin-left:0;
-        margin-top:0.5rem;
-        width:90%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 90%;
     }
 }
+
+/* Current Date */
 #current-date {
-    font-size:1.2rem;
-    color:#555;
+    font-size: 1.2rem;
+    color: var(--label-color);
 }
-input[type="text"]:focus,input[type="number"]:focus,select:focus,textarea:focus {
-    border-color:#0073e6;
-    outline:none;
-}
-input[type="text"],input[type="number"],select {
-    font-size:1rem;
-}
-@media screen and (max-width:768px) {
-    main {
-        margin:1rem;
-        padding:1rem;
-    }
-    button {
-        font-size:1rem;
-        padding:1rem;
-    }
-    fieldset {
-        padding:1rem;
-    }
-}
+
+/* Add Cart Section */
 .add-cart-section {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
 }
-.add-cart-section>label {
-    font-weight:bold;
-    text-align:center;
+
+.add-cart-section > label {
+    font-weight: bold;
+    text-align: center;
 }
+
 .add-cart-buttons {
-    display:flex;
-    align-items:center;
-    gap:0.5rem;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
 }
+
 .add-cart-buttons label {
-    font-weight:normal;
+    font-weight: normal;
 }
+
 .add-cart-buttons button {
-    background:#ddd;
-    color:#333;
-    border:1px solid #ccc;
-    border-radius:4px;
-    padding:0.3rem 0.6rem;
-    font-size:0.9rem;
-    cursor:pointer;
+    background: var(--add-cart-button-bg-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
 .add-cart-buttons button:hover {
-    background:#ccc;
+    background: var(--add-cart-button-hover-bg-color);
 }
+
 .add-cart-buttons input[type="radio"] {
-    width:auto;
-    margin:0 0.2rem 0 0;
+    width: auto;
+    margin: 0 0.2rem 0 0;
 }
+
+/* Letters Row Container */
 .letters-row-container {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
 
+/* Letters Grid */
 .letters-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -275,23 +361,49 @@ input[type="text"],input[type="number"],select {
     }
 }
 
+/* Letter Box */
 .letter-box {
     color: #fff;
-    background: #333;
+    background: var(--letter-box-bg-color);
     border-radius: 4px;
     padding: 0.9rem 0.5rem 0.7rem 0.5rem;
     text-align: center;
     position: relative;
-}
-.letter-box:hover {
-    background: #222;
-    transition-duration: 400ms;
-}
-.letter-box:active {
-    background: #222;
-    transition-duration: 400ms;
+    transition: background-color 0.4s ease;
 }
 
+.letter-box:hover,
+.letter-box:active {
+    background: var(--letter-box-hover-bg-color);
+}
+
+/* Diferenciación de Colores para Estanterías 1 y 2 */
+.shelf-1,
+.shelf-2 {
+    background-color: var(--shelf-1-2-bg-color);
+}
+
+.shelf-1:hover,
+.shelf-2:hover,
+.shelf-1:active,
+.shelf-2:active {
+    background-color: var(--shelf-1-2-hover-bg-color);
+}
+
+/* Diferenciación de Colores para Estanterías 3 y 4 */
+.shelf-3,
+.shelf-4 {
+    background-color: var(--shelf-3-4-bg-color);
+}
+
+.shelf-3:hover,
+.shelf-4:hover,
+.shelf-3:active,
+.shelf-4:active {
+    background-color: var(--shelf-3-4-hover-bg-color);
+}
+
+/* Letter Label */
 .letter-label {
     font-size: 22px;
     font-weight: bold;
@@ -299,6 +411,7 @@ input[type="text"],input[type="number"],select {
     text-transform: uppercase;
 }
 
+/* Extra Fields para Letras */
 .letter-extra-fields {
     margin-top: 0.5rem;
 }
@@ -306,23 +419,20 @@ input[type="text"],input[type="number"],select {
 .letter-extra-fields label {
     display: block;
 }
-#extra-field {
-    margin-bottom: 0rem;
-    text-align: center;
-    padding: 0.2rem 0.1rem 0.2rem 0.1rem;
+
+/* Enfoque en Campos Específicos */
+.extra-field:focus {
+    border-color: var(--input-focus-border-color);
+    outline: none;
 }
-#letter-box-A{
-    background-color: #060b87;
-}
-#letter-box-A:hover {
-    background-color: #03065f;
-    transition-duration: 400ms;
-}
+
+/* Letter Handle */
 .letter-handle {
     position: absolute;
     top: 0.2rem;
     right: 0.2rem;
 }
+
 .letter-handle-radio {
     cursor: grab;
 }
