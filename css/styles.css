@@ -225,70 +225,162 @@ input[type="checkbox"] {
 }
 
 /* Bins Section */
-#bins-container {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-}
-
-button#add-bin {
-    margin-top: 0;
+.bin-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    position: relative;
+    /* Elimina el padding-right para que los íconos no afecten la distribución base */
+    padding-right: 0; 
 }
 
 .bin-line {
     display: flex;
     align-items: center;
-    width: 48%;
-    justify-content: flex-end;
-    flex-direction: row;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 0;
 }
 
-.bin-line input {
-    flex: 1 1 auto;
-    margin-left: 0.5rem;
+.bin-line label {
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.bin-group {
+.bin-icons {
     display: flex;
-    flex-direction: row;
-    margin-bottom: 1rem;
-    justify-content: space-between;
+    gap: 0.5rem;
+    margin-left: auto; /* Empuja los íconos al extremo derecho */
+    align-items: center;
 }
 
-.remove-bin-btn {
-    background: var(--remove-button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.6rem;
+.bin-icons .material-icons {
     cursor: pointer;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    align-self: flex-end;
-    transition: background-color 0.3s ease;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+    /* Ajustar colores si es necesario */
+    color: #cc0000;
 }
 
-.remove-bin-btn:hover {
-    background: var(--remove-button-hover-bg-color);
+.bin-icons .icon-add {
+    color: #0073e6;
 }
 
-.bin-group input {
-    width: auto;
-    margin-bottom: 0.5rem;
+.bin-icons .icon-clean {
+    color: #555;
 }
 
-@media (max-width: 768px) {
-    .bin-line {
-        width: 90%;
+.bin-icons .icon-add:hover {
+    color: #005bb5;
+}
+
+.bin-icons .icon-remove:hover {
+    color: #990000;
+}
+
+.bin-icons .icon-clean:hover {
+    color: #333;
+}
+/* Ajustes solo para escritorio: 
+   "Type of Bin" ocupará el espacio restante y "Quantity" el 30% 
+   Los íconos quedarán al final.
+*/
+
+@media (min-width: 769px) {
+    .bin-group {
+        display: flex;
+        align-items: center;
         justify-content: flex-start;
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 1rem;
+        position: relative;
+        padding-right: 0;
+    }
+    .test {
+        width: 30%;
+    }
+    .bin-line label {
+        margin-bottom: 1rem;
     }
 
-    .bin-line input {
-        margin-left: 0;
+    /* Primera línea (Type of Bin) se expande para ocupar el espacio restante */
+    .bin-group > .bin-line:nth-child(1) {
+        flex: 1;
+    }
+
+    /* Segunda línea (Quantity) fija al 30% del contenedor */
+    .bin-group > .bin-line:nth-child(2) {
+        flex: 0 0 30%;
+    }
+
+    /* Íconos se mantienen al final */
+    .bin-icons {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin-bottom: 1rem;
+        /* Al no aplicar margin-left:auto, los íconos quedarán pegados tras la línea de Quantity.
+           El espacio se controla con gap:1rem en el padre (.bin-group) para que no se sobrepongan. */
+    }
+}
+
+/* Distribución responsiva para móviles */
+@media (max-width: 768px) {
+    .bin-group {
+        display: grid;
+        /* 2 columnas para labels/inputs uno al lado del otro */
+        grid-template-columns: 1fr 1fr;
+        /* 3 filas: 
+           1ra fila: labels
+           2da fila: inputs
+           3ra fila: íconos
+        */
+        grid-template-rows: auto auto auto;
+        gap: 0.5rem;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .bin-line {
+        display: contents; /* Esto permite colocar label e input en celdas separadas */
+    }
+
+    /* Primer bin-line (Type of Bin) */
+    .bin-group .bin-line:nth-child(1) label {
+        grid-column: 1; 
+        grid-row: 1; /* Primera fila para el label */
+        text-align: center;
+    }
+    .bin-group .bin-line:nth-child(1) input {
+        grid-column: 1; 
+        grid-row: 2; /* Segunda fila para el input */
+        width: 100%;
         margin-top: 0.5rem;
-        width: 90%;
+    }
+
+    /* Segundo bin-line (Quantity) */
+    .bin-group .bin-line:nth-child(2) label {
+        grid-column: 2; 
+        grid-row: 1; /* label de quantity en primera fila, segunda columna */
+        text-align: center;
+    }
+    .bin-group .bin-line:nth-child(2) input {
+        grid-column: 2; 
+        grid-row: 2; /* input de quantity en segunda fila, segunda columna */
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    /* Íconos en la tercera fila, centrados */
+    .bin-icons {
+        grid-column: 1 / span 2; /* Ocupar ambas columnas */
+        grid-row: 3; /* Tercera fila */
+        justify-content: center;
+        position: static;
+        transform: none;
+        top: auto;
+        right: auto;
+        margin-left: 0;
+        margin-bottom: 1rem; 
     }
 }
 

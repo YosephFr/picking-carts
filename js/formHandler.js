@@ -5,43 +5,78 @@ function createBinGroup(canRemove=false){
     binGroup.classList.add('bin-group');
     binGroup.innerHTML=`
         <div class="bin-line">
-            <label>Type of Bin:</label>
+            <label class="test">Type of Bin:</label>
             <input type="text" name="bin-type" required>
         </div>
-        <div class="bin-line">
-            <label>Quantity:</label>
+        <div class="bin-line" id="qty">
+            <label>Qty:</label>
             <input type="number" name="bin-number" min="1" required>
         </div>
     `;
-    if(canRemove){
-        const removeBtn=document.createElement('button');
-        removeBtn.type='button';
-        removeBtn.textContent='X';
-        removeBtn.classList.add('remove-bin-btn');
-        removeBtn.addEventListener('click',()=>binGroup.remove());
-        binGroup.appendChild(removeBtn);
+
+    // Contenedor de íconos
+    const iconsContainer = document.createElement('span');
+    iconsContainer.classList.add('bin-icons');
+
+    if(!canRemove){
+        // Bin por defecto: icono para limpiar y icono para agregar nuevo bin
+        iconsContainer.innerHTML=`
+            <i class="material-icons icon-clean" title="Clear fields">refresh</i>
+            <i class="material-icons icon-add" title="Add another bin">add_circle</i>
+        `;
+    } else {
+        // Bins adicionales: icono para remover y icono para agregar nuevo bin
+        iconsContainer.innerHTML=`
+            <i class="material-icons icon-remove" title="Remove this bin">remove_circle</i>
+            <i class="material-icons icon-add" title="Add another bin">add_circle</i>
+        `;
     }
+
+    binGroup.appendChild(iconsContainer);
+
     return binGroup;
 }
+
 
 export function initializeForm(){
     const form=document.getElementById('picking-cart-form');
     const binsContainer=document.getElementById('bins-container');
-    const addBinButton=document.getElementById('add-bin');
 
     // Agregamos primer bin sin botón de remover
     binsContainer.appendChild(createBinGroup());
 
-    addBinButton.addEventListener('click',()=>{
-        if (binsContainer.querySelectorAll('.bin-group').length >= MAX_BINS) {
+// Evento global para manejar íconos en bins
+form.addEventListener('click', (e) => {
+    if (e.target.classList.contains('icon-add')) {
+        // Agregar nuevo bin si no se alcanzó el máximo
+        if (binsContainer.querySelectorAll('.bin-group').length < MAX_BINS) {
+            binsContainer.appendChild(createBinGroup(true));
+            const newBin = binsContainer.lastElementChild;
+            newBin.classList.add('bin-group-animate');
+            setTimeout(() => newBin.classList.remove('bin-group-animate'), 300);
+        } else {
             alert(MESSAGES.maxBinsReached);
-            return;
         }
-        binsContainer.appendChild(createBinGroup(true));
-        const newBin = binsContainer.lastElementChild;
-        newBin.classList.add('bin-group-animate');
-        setTimeout(() => newBin.classList.remove('bin-group-animate'), 300);
-    });
+    }
+
+    if (e.target.classList.contains('icon-remove')) {
+        // Remover bin actual (no el por defecto)
+        const binToRemove = e.target.closest('.bin-group');
+        if (binToRemove) binToRemove.remove();
+    }
+
+    if (e.target.classList.contains('icon-clean')) {
+        // Limpiar los campos del bin por defecto
+        const binToClean = e.target.closest('.bin-group');
+        if (binToClean) {
+            const typeInput = binToClean.querySelector('input[name="bin-type"]');
+            const numberInput = binToClean.querySelector('input[name="bin-number"]');
+            if (typeInput) typeInput.value = '';
+            if (numberInput) numberInput.value = '';
+        }
+    }
+});
+
 
     // Lógica para shelves y letras
     const shelfCheckboxes = form.querySelectorAll('input[name="shelf"]');
