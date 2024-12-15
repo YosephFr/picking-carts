@@ -1,338 +1,260 @@
-/* Diseño base y paleta de colores */
 body {
-    font-family: 'Montserrat', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Fondo gris claro */
-    color: #333; /* Texto gris oscuro */
-    box-sizing: border-box;  /* Asegura que el padding y el borde no sobrepasen el ancho */
+    font-family:'Montserrat',Arial,sans-serif;
+    margin:0;
+    padding:0;
+    background-color:#f4f4f4;
+    color:#333;
+    box-sizing:border-box;
 }
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;  /* Aplica box-sizing a todos los elementos */
+*,*::before,*::after {
+    box-sizing:inherit;
 }
-
 header {
-    background-color: #333; /* Gris oscuro */
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    background-color:#333;
+    color:#fff;
+    padding:1rem;
+    text-align:center;
 }
-
 main {
-    margin: 2rem auto;
-    max-width: 800px; /* Tamaño aumentado en versión escritorio */
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin:2rem auto;
+    max-width:800px;
+    background:#fff;
+    padding:2rem;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
-
-@media (max-width: 768px) {
+@media (max-width:768px) {
     main {
-        margin: 1rem; /* Márgenes en versión móvil */
-        padding: 1rem;
+        margin:1rem;
+        padding:1rem;
     }
 }
-
-/* Basic information */
 .basic-info-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
 }
-
 .basic-left-fields {
-    flex: 0 0 68%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex:0 0 68%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
-
 .basic-right-field {
-    flex: 0 0 28%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex:0 0 28%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
 }
 select#cart-station {
-    width: 90%
+    width:90%;
 }
-
-@media (max-width: 768px) {
-    .basic-left-fields,
-    .basic-right-field {
-        flex: 0 0 100%;
-        width: 100%;
-        align-items: flex-start; /* revertir el alineado al original */
+@media (max-width:768px) {
+    .basic-left-fields,.basic-right-field {
+        flex:0 0 100%;
+        width:100%;
+        align-items:flex-start;
     }
-
     select#cart-station {
-        width: 100%; /* volver al 100% en móvil */
+        width:100%;
     }
 }
-
-/* NUEVO: En móvil, todos uno debajo del otro ocupando 100% */
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .basic-info-row {
-        display: block;
+        display:block;
     }
-    .basic-left-fields, .basic-right-field {
-        flex: 0 0 100%;
-        width: 100%;
-        margin-bottom: 1rem;
+    .basic-left-fields,.basic-right-field {
+        flex:0 0 100%;
+        width:100%;
+        margin-bottom:1rem;
     }
 }
-
-/* Estilos generales de formulario */
 form {
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    flex-direction:column;
 }
-
 fieldset {
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: #fafafa; /* Fondo gris claro para el campo */
+    margin-bottom:1.5rem;
+    border:1px solid #ccc;
+    padding:1rem;
+    border-radius:5px;
+    background-color:#fafafa;
 }
-
 legend {
-    font-weight: bold;
-    color: #333;
+    font-weight:bold;
+    color:#333;
 }
-
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555; /* Gris medio */
+    display:block;
+    margin-bottom:0.5rem;
+    font-weight:bold;
+    color:#555;
 }
-
-/* Shelf rows */
 .shelf-row {
-    display: flex;
-    margin-bottom: 0.5rem;
-    justify-content: flex-start;
-    flex-direction: row;
-    align-items: flex-start;
+    display:flex;
+    margin-bottom:0.5rem;
+    justify-content:flex-start;
+    flex-direction:row;
+    align-items:flex-start;
 }
-
 .shelf-row input[type="checkbox"] {
-    width: 1.2em;
-    height: 1.2em;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    width:1.2em;
+    height:1.2em;
+    margin-right:0.5rem;
+    margin-bottom:0.5rem;
 }
-
-/* Campos de texto */
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fafafa; /* Fondo gris claro */
-    color: #333;
+input[type="text"],input[type="number"] {
+    width:100%;
+    padding:0.75rem;
+    margin-bottom:1rem;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background-color:#fafafa;
+    color:#333;
 }
-
-/* Selector */
 select {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fafafa; /* Fondo gris claro para el selector */
-    color: #333;
+    width:100%;
+    padding:0.75rem;
+    margin-bottom:1rem;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background-color:#fafafa;
+    color:#333;
 }
-
-/* Radio */
 input[type="radio"] {
-    width: auto;
-    margin-right: 10px;
+    width:auto;
+    margin-right:0.5rem;
 }
-
-/* Botón */
 button {
-    background-color: #555; /* Gris oscuro para los botones */
-    color: white;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+    background-color:#555;
+    color:#fff;
+    padding:0.75rem;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:1rem;
+    margin-top:1rem;
 }
-
 button:hover {
-    background-color: #444; /* Gris aún más oscuro en hover */
+    background-color:#444;
 }
-
-/* Checkboxes */
 input[type="checkbox"] {
-    margin-right: 0.5rem;
+    margin-right:0.5rem;
 }
-
-input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-/* Bins */
 #bins-container {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom:1rem;
+    margin-top:1rem;
 }
-button#add-bin{
-    margin-top: 0px;
+button#add-bin {
+    margin-top:0;
 }
 .bin-line {
-    display: flex;
-    align-items: center;
-    width: 48%;
-    justify-content: flex-end;
-    flex-direction: row;
-    margin-bottom: 0.5rem;
+    display:flex;
+    align-items:center;
+    width:48%;
+    justify-content:flex-end;
+    flex-direction:row;
+    margin-bottom:0.5rem;
 }
 .bin-line input {
-    flex: 1 1 auto;
-    margin-left: 0.5rem;
+    flex:1 1 auto;
+    margin-left:0.5rem;
 }
 .bin-group {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 1rem;
-    justify-content: space-between;
+    display:flex;
+    flex-direction:row;
+    margin-bottom:1rem;
+    justify-content:space-between;
 }
 .remove-bin-btn {
-    background: #cc0000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    align-self: flex-end;
+    background:#cc0000;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    padding:0.3rem 0.6rem;
+    cursor:pointer;
+    font-size:0.8rem;
+    margin-top:0.5rem;
+    align-self:flex-end;
 }
 .remove-bin-btn:hover {
-    background: #990000;
+    background:#990000;
 }
-
 .bin-group input {
-    width: auto;
-    margin-bottom: 0.5rem;
+    width:auto;
+    margin-bottom:0.5rem;
 }
-
-/* NUEVO: Ajuste de bins en móvil para mejor visualización.
-   Aquí colocamos cada bin-line en 100% y vertical en pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .bin-line {
-        width: 90%;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: flex-start;
+        width:90%;
+        justify-content:flex-start;
+        flex-direction:column;
+        align-items:flex-start;
     }
-
     .bin-line input {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        width: 90%;
+        margin-left:0;
+        margin-top:0.5rem;
+        width:90%;
     }
 }
-
-/* Mejorar la visibilidad del campo de fecha */
 #current-date {
-    font-size: 1.2rem;
-    color: #555; /* Gris medio */
+    font-size:1.2rem;
+    color:#555;
 }
-
-/* Enfoque */
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
-    border-color: #0073e6; /* Azul claro */
-    outline: none;
+input[type="text"]:focus,input[type="number"]:focus,select:focus,textarea:focus {
+    border-color:#0073e6;
+    outline:none;
 }
-
-/* Ajustes generales */
-input[type="text"],
-input[type="number"],
-select {
-    font-size: 1rem;
+input[type="text"],input[type="number"],select {
+    font-size:1rem;
 }
-
-button {
-    font-size: 1rem;
-    margin-top: 1rem;
-}
-
-/* Ajustes en la sección de 'main' */
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px) {
     main {
-        margin: 1rem;
-        padding: 1rem;
+        margin:1rem;
+        padding:1rem;
     }
-
     button {
-        font-size: 1rem;
-        padding: 1rem;
+        font-size:1rem;
+        padding:1rem;
     }
-
     fieldset {
-        padding: 1rem;
+        padding:1rem;
     }
 }
-
-/* add cart section */
 .add-cart-section {
-    /* NUEVO: Centrar el texto y los botones tanto en pc como en movil */
-    display: flex;
-    flex-direction: column; /* Texto arriba, botones abajo */
-    align-items: center;
-    margin-bottom: 1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:1rem;
 }
-
-.add-cart-section > label {
-    font-weight: bold;
-    text-align: center;
+.add-cart-section>label {
+    font-weight:bold;
+    text-align:center;
 }
-
-/* Botones Yes/No más pequeños y estéticos, centrados */
 .add-cart-buttons {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    justify-content:center;
 }
-
 .add-cart-buttons label {
-    font-weight: normal;
+    font-weight:normal;
 }
-
-/* Si mantienes radios, aquí no afectan; 
-   pero ya tienes botones. Si tienes botones "Yes"/"No", ajusta su tamaño */
 .add-cart-buttons button {
-    background: #ddd;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.9rem;
-    cursor: pointer;
+    background:#ddd;
+    color:#333;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:0.3rem 0.6rem;
+    font-size:0.9rem;
+    cursor:pointer;
 }
-
 .add-cart-buttons button:hover {
-    background: #ccc;
+    background:#ccc;
 }
-
-/* El input radio para add-cart no se utiliza ahora, pero mantengo el estilo por si acaso */
 .add-cart-buttons input[type="radio"] {
-    width: auto;
-    margin: 0 0.2rem 0 0;
+    width:auto;
+    margin:0 0.2rem 0 0;
 }
