@@ -1,4 +1,3 @@
-/* Definición de Variables CSS para Colores Globales */
 :root {
     --font-family: 'Montserrat', Arial, sans-serif;
     --background-color: #f4f4f4;
@@ -22,542 +21,375 @@
     --add-cart-button-hover-bg-color: #ccc;
     --letter-box-bg-color: #333;
     --letter-box-hover-bg-color: #222;
-    --shelf-1-2-bg-color: #060b87; /* Color para Shelf 1 y 2 */
+    --shelf-1-2-bg-color: #060b87;
     --shelf-1-2-hover-bg-color: #03065f;
-    --shelf-3-4-bg-color: #333; /* Color para Shelf 3 y 4 */
+    --shelf-3-4-bg-color: #333;
     --shelf-3-4-hover-bg-color: #222;
 }
 
-/* Reset y Box Sizing */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+*,*::before,*::after{box-sizing:border-box}
 
 body {
     font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
-/* Header */
 header {
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
-    padding: 1rem;
-    text-align: center;
+    padding:1rem;
+    text-align:center;
 }
 
-/* Main */
 main {
-    margin: 2rem auto;
-    max-width: 800px;
+    margin:2rem auto;
+    max-width:800px;
     background: var(--main-bg-color);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding:2rem;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-@media (max-width: 768px) {
-    main {
-        margin: 1rem;
-        padding: 1rem;
-    }
+@media (max-width:768px){
+    main{margin:1rem; padding:1rem}
 }
 
-/* Formulario */
 form {
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    flex-direction:column;
 }
 
-/* Fieldset */
 fieldset {
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--fieldset-border-color);
-    padding: 1rem;
-    border-radius: 5px;
+    margin-bottom:1.5rem;
+    border:1px solid var(--fieldset-border-color);
+    padding:1rem;
+    border-radius:5px;
     background-color: var(--fieldset-bg-color);
 }
 
 legend {
-    font-weight: bold;
+    font-weight:bold;
     color: var(--legend-color);
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    display:block;
+    margin-bottom:0.5rem;
+    font-weight:bold;
     color: var(--label-color);
 }
 
-/* Basic Information Row */
 .basic-info-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
 }
 
-.basic-left-fields {
-    flex: 0 0 68%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.basic-left-fields, .basic-right-field {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
-.basic-right-field {
-    flex: 0 0 28%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
+.basic-left-fields { flex:0 0 68% }
+.basic-right-field { flex:0 0 28%; align-items:center }
 
-select#cart-station {
-    width: 90%;
-}
+select#cart-station { width:90% }
 
-@media (max-width: 768px) {
-    .basic-left-fields,
-    .basic-right-field {
-        flex: 0 0 100%;
-        width: 100%;
-        align-items: flex-start;
+@media (max-width:768px){
+    .basic-left-fields, .basic-right-field {
+        flex:0 0 100%;
+        width:100%;
+        align-items:flex-start;
     }
-
-    select#cart-station {
-        width: 100%;
-    }
+    select#cart-station { width:100% }
+    .basic-info-row { display:block }
+    .basic-left-fields, .basic-right-field { margin-bottom:1rem }
 }
 
-@media (max-width: 768px) {
-    .basic-info-row {
-        display: block;
-    }
-
-    .basic-left-fields,
-    .basic-right-field {
-        flex: 0 0 100%;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-}
-
-/* Shelf Rows */
 .shelf-row {
-    display: flex;
-    margin-bottom: 0.5rem;
-    justify-content: flex-start;
-    flex-direction: row;
-    align-items: flex-start;
+    display:flex;
+    margin-bottom:0.5rem;
+    align-items:flex-start;
 }
 
 .shelf-row input[type="checkbox"] {
-    width: 1.2em;
-    height: 1.2em;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    width:1.2em;
+    height:1.2em;
+    margin-right:0.5rem;
+    margin-bottom:0.5rem;
 }
 
-/* Inputs y Selects */
-input[type="text"],
-input[type="number"],
-select {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--input-border-color);
-    border-radius: 4px;
+input[type="text"], input[type="number"], select {
+    width:100%;
+    padding:0.75rem;
+    margin-bottom:1rem;
+    border:1px solid var(--input-border-color);
+    border-radius:4px;
     background-color: var(--input-bg-color);
     color: var(--text-color);
-    font-size: 1rem;
+    font-size:1rem;
 }
 
 input.extra-field {
-    margin-bottom: 0;
-    text-align: center;
-    padding: 0.2rem 0.1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-    font-size: 0.9rem;
+    margin-bottom:0;
+    text-align:center;
+    padding:0.2rem 0.1rem;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background-color:#fff;
+    color:#333;
+    font-size:0.9rem;
 }
 
 input[type="radio"] {
-    width: auto;
-    margin-right: 0.5rem;
+    width:auto;
+    margin-right:0.5rem;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
+input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus, .extra-field:focus {
     border-color: var(--input-focus-border-color);
-    outline: none;
+    outline:none;
 }
 
-/* Botones Generales */
 button {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
+    padding:0.75rem;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:1rem;
+    margin-top:1rem;
+    transition:background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: var(--button-hover-bg-color);
-}
+button:hover { background-color: var(--button-hover-bg-color) }
 
-/* Checkbox General */
-input[type="checkbox"] {
-    margin-right: 0.5rem;
-}
+input[type="checkbox"] { margin-right:0.5rem }
 
-/* Bins Section */
 .bin-group {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    position: relative;
-    /* Elimina el padding-right para que los íconos no afecten la distribución base */
-    padding-right: 0; 
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:1rem;
+    position:relative;
+    padding-right:0;
 }
 
 .bin-line {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-bottom:0;
 }
 
 .bin-line label {
-    font-size: 14px;
-    font-weight: bold;
+    font-size:14px;
+    font-weight:bold;
 }
 
 .bin-icons {
-    display: flex;
-    gap: 0.5rem;
-    margin-left: auto; /* Empuja los íconos al extremo derecho */
-    align-items: center;
+    display:flex;
+    gap:0.5rem;
+    margin-left:auto;
+    align-items:center;
 }
 
 .bin-icons .material-icons {
-    cursor: pointer;
-    font-size: 1.4rem;
-    transition: color 0.3s ease;
-    /* Ajustar colores si es necesario */
-    color: #cc0000;
+    cursor:pointer;
+    font-size:1.4rem;
+    transition:color 0.3s ease;
+    color:#cc0000;
 }
 
-.bin-icons .icon-add {
-    color: #0073e6;
+.bin-icons .icon-add { color:#0073e6 }
+.bin-icons .icon-clean { color:#555 }
+.bin-icons .icon-add:hover { color:#005bb5 }
+.bin-icons .icon-remove:hover { color:#990000 }
+.bin-icons .icon-clean:hover { color:#333 }
+
+@media (min-width:769px){
+    .bin-group { padding-right:0 }
+    .test { width:30% }
+    .bin-line label { margin-bottom:1rem }
+    .bin-group > .bin-line:nth-child(1) { flex:1 }
+    .bin-group > .bin-line:nth-child(2) { flex:0 0 30% }
+    .bin-icons { margin-bottom:1rem }
 }
 
-.bin-icons .icon-clean {
-    color: #555;
-}
-
-.bin-icons .icon-add:hover {
-    color: #005bb5;
-}
-
-.bin-icons .icon-remove:hover {
-    color: #990000;
-}
-
-.bin-icons .icon-clean:hover {
-    color: #333;
-}
-/* Ajustes solo para escritorio: 
-   "Type of Bin" ocupará el espacio restante y "Quantity" el 30% 
-   Los íconos quedarán al final.
-*/
-
-@media (min-width: 769px) {
+@media (max-width:768px){
     .bin-group {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 1rem;
-        position: relative;
-        padding-right: 0;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:auto auto auto;
+        gap:0.5rem;
+        align-items:center;
+        justify-items:center;
     }
-    .test {
-        width: 30%;
-    }
-    .bin-line label {
-        margin-bottom: 1rem;
-    }
-
-    /* Primera línea (Type of Bin) se expande para ocupar el espacio restante */
-    .bin-group > .bin-line:nth-child(1) {
-        flex: 1;
-    }
-
-    /* Segunda línea (Quantity) fija al 30% del contenedor */
-    .bin-group > .bin-line:nth-child(2) {
-        flex: 0 0 30%;
-    }
-
-    /* Íconos se mantienen al final */
-    .bin-icons {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        margin-bottom: 1rem;
-        /* Al no aplicar margin-left:auto, los íconos quedarán pegados tras la línea de Quantity.
-           El espacio se controla con gap:1rem en el padre (.bin-group) para que no se sobrepongan. */
-    }
-}
-
-/* Distribución responsiva para móviles */
-@media (max-width: 768px) {
-    .bin-group {
-        display: grid;
-        /* 2 columnas para labels/inputs uno al lado del otro */
-        grid-template-columns: 1fr 1fr;
-        /* 3 filas: 
-           1ra fila: labels
-           2da fila: inputs
-           3ra fila: íconos
-        */
-        grid-template-rows: auto auto auto;
-        gap: 0.5rem;
-        align-items: center;
-        justify-items: center;
-    }
-
-    .bin-line {
-        display: contents; /* Esto permite colocar label e input en celdas separadas */
-    }
-
-    /* Primer bin-line (Type of Bin) */
+    .bin-line { display:contents }
     .bin-group .bin-line:nth-child(1) label {
-        grid-column: 1; 
-        grid-row: 1; /* Primera fila para el label */
-        text-align: center;
+        grid-column:1; grid-row:1; text-align:center;
     }
     .bin-group .bin-line:nth-child(1) input {
-        grid-column: 1; 
-        grid-row: 2; /* Segunda fila para el input */
-        width: 100%;
-        margin-top: 0.5rem;
+        grid-column:1; grid-row:2; width:100%; margin-top:0.5rem;
     }
-
-    /* Segundo bin-line (Quantity) */
     .bin-group .bin-line:nth-child(2) label {
-        grid-column: 2; 
-        grid-row: 1; /* label de quantity en primera fila, segunda columna */
-        text-align: center;
+        grid-column:2; grid-row:1; text-align:center;
     }
     .bin-group .bin-line:nth-child(2) input {
-        grid-column: 2; 
-        grid-row: 2; /* input de quantity en segunda fila, segunda columna */
-        width: 100%;
-        margin-top: 0.5rem;
+        grid-column:2; grid-row:2; width:100%; margin-top:0.5rem;
     }
-
-    /* Íconos en la tercera fila, centrados */
     .bin-icons {
-        grid-column: 1 / span 2; /* Ocupar ambas columnas */
-        grid-row: 3; /* Tercera fila */
-        justify-content: center;
-        position: static;
-        transform: none;
-        top: auto;
-        right: auto;
-        margin-left: 0;
-        margin-bottom: 1rem; 
+        grid-column:1 / span 2;
+        grid-row:3;
+        justify-content:center;
+        position:static;
+        transform:none;
+        top:auto;
+        right:auto;
+        margin-left:0;
+        margin-bottom:1rem;
     }
 }
 
-/* Current Date */
 #current-date {
-    font-size: 1.2rem;
-    color: var(--label-color);
+    font-size:1.2rem;
+    color:var(--label-color);
 }
 
-/* Add Cart Section */
 .add-cart-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:1rem;
 }
 
 .add-cart-section > label {
-    font-weight: bold;
-    text-align: center;
+    font-weight:bold;
+    text-align:center;
 }
 
 .add-cart-buttons {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    justify-content:center;
 }
 
 .add-cart-buttons label {
-    font-weight: normal;
+    font-weight:normal;
 }
 
 .add-cart-buttons button {
-    background: var(--add-cart-button-bg-color);
-    color: var(--text-color);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background:var(--add-cart-button-bg-color);
+    color:var(--text-color);
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:0.3rem 0.6rem;
+    font-size:0.9rem;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
 }
 
 .add-cart-buttons button:hover {
-    background: var(--add-cart-button-hover-bg-color);
+    background:var(--add-cart-button-hover-bg-color);
 }
 
 .add-cart-buttons input[type="radio"] {
-    width: auto;
-    margin: 0 0.2rem 0 0;
+    width:auto;
+    margin:0 0.2rem 0 0;
 }
 
-/* Letters Row Container */
 .letters-row-container {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin:0.5rem 0 1rem 0;
 }
 
-/* Letters Grid */
 .letters-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.5rem;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:0.5rem;
 }
 
-@media (max-width: 768px) {
-    .letters-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+@media (max-width:768px){
+    .letters-grid { grid-template-columns:repeat(3,1fr) }
 }
 
-/* Letter Box */
 .letter-box {
-    color: #fff;
-    background: var(--letter-box-bg-color);
-    border-radius: 4px;
-    padding: 0.9rem 0.5rem 0.7rem 0.5rem;
-    text-align: center;
-    position: relative;
-    transition: background-color 0.4s ease;
+    color:#fff;
+    background:var(--letter-box-bg-color);
+    border-radius:4px;
+    padding:0.9rem 0.5rem 0.7rem 0.5rem;
+    text-align:center;
+    position:relative;
+    transition:background-color 0.4s ease;
 }
 
-.letter-box:hover,
-.letter-box:active {
-    background: var(--letter-box-hover-bg-color);
+.letter-box:hover, .letter-box:active {
+    background:var(--letter-box-hover-bg-color);
 }
 
-/* Diferenciación de Colores para Estanterías 1 y 2 */
-.shelf-1,
-.shelf-2 {
-    background-color: var(--shelf-1-2-bg-color);
+.shelf-1, .shelf-2 {
+    background-color:var(--shelf-1-2-bg-color);
 }
 
-.shelf-1:hover,
-.shelf-2:hover,
-.shelf-1:active,
-.shelf-2:active {
-    background-color: var(--shelf-1-2-hover-bg-color);
+.shelf-1:hover, .shelf-2:hover, .shelf-1:active, .shelf-2:active {
+    background-color:var(--shelf-1-2-hover-bg-color);
 }
 
-/* Diferenciación de Colores para Estanterías 3 y 4 */
-.shelf-3,
-.shelf-4 {
-    background-color: var(--shelf-3-4-bg-color);
+.shelf-3, .shelf-4 {
+    background-color:var(--shelf-3-4-bg-color);
 }
 
-.shelf-3:hover,
-.shelf-4:hover,
-.shelf-3:active,
-.shelf-4:active {
-    background-color: var(--shelf-3-4-hover-bg-color);
+.shelf-3:hover, .shelf-4:hover, .shelf-3:active, .shelf-4:active {
+    background-color:var(--shelf-3-4-hover-bg-color);
 }
 
-/* Letter Label */
 .letter-label {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:0.25rem;
+    text-transform:uppercase;
 }
 
-/* Extra Fields para Letras */
 .letter-extra-fields {
-    margin-top: 0.5rem;
+    margin-top:0.5rem;
 }
 
 .letter-extra-fields label {
-    display: block;
+    display:block;
 }
 
-/* Enfoque en Campos Específicos */
-.extra-field:focus {
-    border-color: var(--input-focus-border-color);
-    outline: none;
-}
-
-/* Letter Handle */
 .letter-handle {
-    position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
+    position:absolute;
+    top:0.2rem;
+    right:0.2rem;
 }
 
 .letter-handle-radio {
-    cursor: grab;
+    cursor:grab;
 }
 
-.fade-in {
-    animation: fadeIn 0.3s forwards;
-}
-
-.fade-out {
-    animation: fadeOut 0.3s forwards;
-}
+.fade-in { animation:fadeIn 0.3s forwards }
+.fade-out { animation:fadeOut 0.3s forwards }
 
 @keyframes fadeIn {
-    from { opacity:0; }
-    to { opacity:1; }
+    from { opacity:0 }
+    to { opacity:1 }
 }
 
 @keyframes fadeOut {
-    from { opacity:1; }
-    to { opacity:0; }
+    from { opacity:1 }
+    to { opacity:0 }
 }
 
-.bin-group-animate {
-    animation: popIn 0.3s ease-out forwards;
-}
+.bin-group-animate { animation:popIn 0.3s ease-out forwards }
 
 @keyframes popIn {
-    from {
-        opacity:0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity:1;
-        transform: scale(1);
-    }
+    from { opacity:0; transform:scale(0.95) }
+    to { opacity:1; transform:scale(1) }
 }
