@@ -148,15 +148,18 @@ function unlinkCombinedBox(form, box) {
         if(index>=children.length) parent.appendChild(single);
         else parent.insertBefore(single, children[index]);
     }
+    alert('Unlink completed successfully.');
 }
 
 function combineLetterBoxes(form, box1, box2) {
     const parent = box1.parentNode;
     if(!sameShelf(box1, box2)) {
+        alert('You cannot link letter boxes from different shelves.');
         exitLinkMode(form);
         return;
     }
     if(!areAdjacent(parent, box1, box2)) {
+        alert('You can only link adjacent letter boxes.');
         exitLinkMode(form);
         return;
     }
@@ -179,6 +182,7 @@ function combineLetterBoxes(form, box1, box2) {
         const finalChildren = [...parent.querySelectorAll('.letter-box')];
         if(finalChildren.length===0 || leftIndex>=finalChildren.length) parent.appendChild(combined);
         else parent.insertBefore(combined, finalChildren[leftIndex]);
+        alert('Link created successfully.');
     } else if(leftCombined && !rightCombined && rightLetters.length===1) {
         const origin='combined-single';
         const leftIndex = boxes.indexOf(leftBox);
@@ -187,6 +191,7 @@ function combineLetterBoxes(form, box1, box2) {
         const finalChildren = [...parent.querySelectorAll('.letter-box')];
         if(leftIndex+1>finalChildren.length-1) parent.appendChild(newCombined);
         else parent.insertBefore(newCombined, finalChildren[leftIndex+1]);
+        alert('Link created successfully.');
     } else if(!leftCombined && rightCombined && leftLetters.length===1) {
         const origin='single-combined';
         const rightIndex = boxes.indexOf(rightBox);
@@ -195,8 +200,17 @@ function combineLetterBoxes(form, box1, box2) {
         const finalChildren = [...parent.querySelectorAll('.letter-box')];
         if(rightIndex>=finalChildren.length) parent.appendChild(newCombined);
         else parent.insertBefore(newCombined, finalChildren[rightIndex]);
+        alert('Link created successfully.');
+    } else {
+        alert('Invalid link operation.');
     }
     exitLinkMode(form);
+}
+
+function saveSubmission(data) {
+    const now = new Date();
+    const fileName = `submit_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}${String(now.getSeconds()).padStart(2,'0')}.pdf`;
+    alert(`Data would be saved in 'submissions/${fileName}'. Submission completed successfully.`);
 }
 
 export function initializeForm() {
@@ -287,16 +301,7 @@ export function initializeForm() {
                 number: b.querySelector('input[name="bin-number"]').value
             }))
         };
-
-        console.log('Form Submitted:', data);
-
-        if (data['add-cart'] === 'yes') {
-            alert(MESSAGES.fillNextCart);
-            form.reset();
-            binsContainer.innerHTML = '';
-            binsContainer.appendChild(createBinGroup());
-        } else {
-            alert(MESSAGES.formSuccess);
-        }
+        saveSubmission(data);
+        form.reset();
     });
 }
