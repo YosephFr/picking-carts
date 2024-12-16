@@ -114,6 +114,12 @@ function areAdjacent(parent, box1, box2) {
     return Math.abs(i1 - i2) === 1;
 }
 
+function sameShelf(box1, box2) {
+    const shelf1 = box1.closest('.letters-row-container');
+    const shelf2 = box2.closest('.letters-row-container');
+    return shelf1 && shelf2 && shelf1===shelf2;
+}
+
 function unlinkCombinedBox(form, box) {
     const letters = getLettersFromBox(box);
     const origin = box.getAttribute('data-origin');
@@ -146,6 +152,10 @@ function unlinkCombinedBox(form, box) {
 
 function combineLetterBoxes(form, box1, box2) {
     const parent = box1.parentNode;
+    if(!sameShelf(box1, box2)) {
+        exitLinkMode(form);
+        return;
+    }
     if(!areAdjacent(parent, box1, box2)) {
         exitLinkMode(form);
         return;
