@@ -393,3 +393,57 @@ input[type="checkbox"] { margin-right:0.5rem }
     from { opacity:0; transform:scale(0.95) }
     to { opacity:1; transform:scale(1) }
 }
+.link-trigger {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:0.3rem;
+    cursor:pointer;
+    font-size:0.8rem;
+    color:#fff;
+    opacity:0.8;
+    transition:opacity 0.3s ease;
+}
+
+.link-trigger:hover {
+    opacity:1;
+}
+
+.link-trigger .material-icons {
+    font-size:1rem;
+    margin-bottom:0.1rem;
+}
+
+.letter-box.link-mode-target {
+    border:1px dotted #ccc;
+    opacity:0.9;
+    transition:border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.linking .letter-box:not(.selected-letter-box) {
+    opacity:0.7;
+}
+
+.letter-box.linked .link-trigger .material-icons {
+    content:"link_off";
+}
+.letter-box.linked .link-trigger small {
+    display:none;
+}
+.letter-box.linked .link-trigger::after {
+    content:"Unlink";
+    font-size:0.8rem;
+}
+
+.letter-box.combined .letter-label {
+    font-size:18px;
+}
+
+.letter-box.combined {
+    background:#555;
+}
+
+.letter-box.combined.link-mode-target {
+    background:#555;
+    border:1px dotted #aaa;
+}

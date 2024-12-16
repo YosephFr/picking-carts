@@ -21,14 +21,20 @@ const shelves=[
     s.letters.forEach(l=>{
      const box=document.createElement('div')
      box.className=`letter-box shelf-${s.number}`
-     box.innerHTML=`
-       <div class="letter-label">${l}</div>
-       <input type="checkbox" class="letter-check" id="shelf-${s.number}-${l}" name="letter-shelf-${s.number}-${l}">
-       <div class="letter-extra-fields" style="display:none;">
-         <label><input type="text" name="item-number-shelf-${s.number}-${l}" class="extra-field" placeholder="item #"></label>
-         <label><input type="text" name="sort-string-shelf-${s.number}-${l}" class="extra-field" placeholder="sort string"></label>
-       </div>
-     `
+// Reemplaza el bloque innerHTML del letter-box por este:
+box.innerHTML=`
+  <div class="letter-label">${l}</div>
+  <input type="checkbox" class="letter-check" id="shelf-${s.number}-${l}" name="letter-shelf-${s.number}-${l}">
+  <span class="link-trigger" data-link-mode="off">
+    <i class="material-icons link-icon">link</i>
+    <small>Link</small>
+  </span>
+  <div class="letter-extra-fields" style="display:none;">
+    <label><input type="text" name="item-number-shelf-${s.number}-${l}" class="extra-field" placeholder="item #"></label>
+    <label><input type="text" name="sort-string-shelf-${s.number}-${l}" class="extra-field" placeholder="sort string"></label>
+  </div>
+`
+
      lettersGrid.appendChild(box)
     })
     lettersContainer.appendChild(lettersGrid)
